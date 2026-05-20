@@ -650,7 +650,7 @@ tesseract:
       srcpath: unittest
       buildkey: validate_indic_test
     validate_khmer_test:
-      libalias: libtesseract.a libtesseract_training.#a
+      libalias: libtesseract.a libtesseract_training.a
       srcpath: unittest
       buildkey: validate_khmer_test
     validate_myanmar_test:
@@ -705,3 +705,265 @@ wabt:
       libalias: libwabt.a
       srcpath: src
       buildkey: wabt-unittests
+
+bloaty:
+  name: bloaty
+  prjdir: bloaty
+  builddir: build
+  libs:
+    liblibbloaty.a:
+  uts:
+    bloaty_test:
+      libalias: liblibbloaty.a
+      srcpath: tests
+      buildkey: bloaty_test
+    bloaty_test_pe:
+      libalias: liblibbloaty.a
+      srcpath: tests
+      buildkey: bloaty_test_pe
+    bloaty_misc_test:
+      libalias: liblibbloaty.a
+      srcpath: tests
+      buildkey: bloaty_misc_test
+    range_map_test:
+      libalias: liblibbloaty.a
+      srcpath: tests
+      buildkey: range_map_test
+
+capnproto:
+  name: capnproto
+  prjdir: capnproto
+  builddir: build
+  libs:
+    libcapnp.a:
+      buildkey: ../src/capnp/libcapnp.a
+      builddir: c++/src/capnp
+      srcpath: c++/src/capnp
+    libkj.a:
+      buildkey: ../src/kj/libkj.a
+      builddir: c++/src/kj
+      srcpath: c++/src/kj
+  uts:
+    gtest_capnproto:
+      libalias: libcapnp.a libkj.a
+      srcpath: c++/src/capnp
+      buildkey: gtest_capnproto
+
+libraw:
+  name: libraw
+  prjdir: libraw
+  libs:
+    libraw.a:
+      buildkey: .libs/libraw.a
+      builddir: lib
+      srcpath: src
+  uts:
+    gtest_libraw:
+      libalias: libraw.a
+      srcpath: tests
+      buildkey: gtest_libraw
+
+qpdf:
+  name: qpdf
+  prjdir: qpdf
+  builddir: build
+  libs:
+    libqpdf.a:
+      buildkey: libqpdf/libqpdf.a
+      srcpath: libqpdf
+  uts:
+    gtest_qpdf:
+      libalias: libqpdf.a
+      srcpath: tests
+      buildkey: gtest_qpdf
+
+ogre:
+  name: ogre
+  prjdir: ogre
+  builddir: build
+  libs:
+    libOgreMainStatic.a:
+      buildkey: ../lib/libOgreMainStatic.a
+  uts:
+    Test_Ogre:
+      libalias: libOgreMainStatic.a
+      srcpath: Tests
+      buildkey: ../bin/Test_Ogre
+
+draco:
+  name: draco
+  prjdir: draco
+  builddir: build
+  libs:
+    libdraco.a:
+  uts:
+    draco_tests:
+      libalias: libdraco.a
+      srcpath: src/draco
+      buildkey: draco_tests-1.5.7
+
+hunspell:
+  name: hunspell
+  prjdir: hunspell
+  libs:
+    libhunspell-1.7.a:
+      buildkey: .libs/libhunspell-1.7.a
+      builddir: src/hunspell
+      srcpath: src/hunspell
+  uts:
+    gtest_hunspell:
+      libalias: libhunspell-1.7.a
+      srcpath: tests
+      buildkey: gtest_hunspell
+
+cppcheck:
+  name: cppcheck
+  prjdir: cppcheck
+  builddir: build
+  libs:
+    libcppcheck-core.a:
+      buildkey: ../lib/libcppcheck-core.a
+  uts:
+    gtest_cppcheck:
+      libalias: libcppcheck-core.a
+      srcpath: test
+      buildkey: ../bin/gtest_cppcheck
+
+flatbuffers:
+  name: flatbuffers
+  prjdir: flatbuffers
+  builddir: build
+  libs:
+    libflatbuffers.a:
+  uts:
+    flattests:
+      libalias: libflatbuffers.a
+      srcpath: tests
+
+shaderc:
+  name: shaderc
+  prjdir: shaderc
+  builddir: build
+  libs:
+    libshaderc.a:
+      builddir: libshaderc
+    libshaderc_util.a:
+      builddir: libshaderc_util
+  uts:
+    shaderc_shaderc_test:
+      libalias: libshaderc.a
+      srcpath: libshaderc/src
+    shaderc_shaderc_cpp_test:
+      libalias: libshaderc.a
+      srcpath: libshaderc/src
+    shaderc_shaderc_private_test:
+      libalias: libshaderc.a
+      srcpath: libshaderc/src
+    shaderc_util_compiler_test:
+      libalias: libshaderc_util.a
+      srcpath: libshaderc_util/src
+    shaderc_util_string_piece_test:
+      libalias: libshaderc_util.a
+      srcpath: libshaderc_util/src
+    shaderc_util_format_test:
+      libalias: libshaderc_util.a
+      srcpath: libshaderc_util/src
+    shaderc_util_file_finder_test:
+      libalias: libshaderc_util.a
+      srcpath: libshaderc_util/src
+    shaderc_util_message_test:
+      libalias: libshaderc_util.a
+      srcpath: libshaderc_util/src
+    shaderc_util_version_profile_test:
+      libalias: libshaderc_util.a
+      srcpath: libshaderc_util/src
+
+tink-cc:
+  name: tink-cc
+  prjdir: tink-cc
+  builddir: build/tink
+  libs:
+    libtink_internal_aead_aead_config.a:
+      builddir: aead
+      srcpath: tink/aead
+  uts:
+    tink_test_aead_aead_config_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+    tink_test_aead_aead_wrapper_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+    tink_test_aead_aes_gcm_key_manager_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+    tink_test_aead_aes_ctr_hmac_aead_key_manager_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+    tink_test_aead_aes_eax_key_manager_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+    tink_test_aead_aes_gcm_siv_key_manager_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+    tink_test_aead_xchacha20_poly1305_key_manager_test:
+      libalias: libtink_internal_aead_aead_config.a
+      srcpath: tink/aead
+      builddir: aead
+
+benchmark:
+  name: benchmark
+  prjdir: benchmark
+  builddir: build
+  libs:
+    libbenchmark.a:
+      builddir: src
+  uts:
+    benchmark_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    benchmark_name_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    statistics_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    string_util_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    commandlineflags_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    time_unit_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    min_time_parse_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+    memory_results_gtest:
+      libalias: libbenchmark.a
+      srcpath: test
+      builddir: test
+
+protobuf:
+  name: protobuf
+  prjdir: protobuf
+  builddir: build
+  libs:
+    libprotobuf.a:
+  uts:
+    lite-test:
+      libalias: libprotobuf.a
+      srcpath: src/google/protobuf

@@ -47,7 +47,7 @@ class CMD:
             result = match.group(2)
         elif match := re.search(r"[\w._/-]+?\.l?a", self.cmd):
             result = match.group(0)
-        elif match := re.search(r"[\w._/-]+?\.l?(c|cpp|cc)", self.cmd):
+        elif match := re.search(r"[\w._/-]+?\.l?(c|cpp|cc|cxx|c\+\+)", self.cmd):
             result = match.group(0)
             result = result[: result.rfind(".")]
             result = result + ".o"
@@ -76,7 +76,7 @@ class CMD:
         sources = [
             Path(token)
             for token in tokens
-            if re.search(r"\.(c|cpp|cc)$", token)
+            if re.search(r"\.(c|cpp|cc|cxx|c\+\+)$", token)
         ]
         if real:
             sources = [self.abspath(source) for source in sources]
